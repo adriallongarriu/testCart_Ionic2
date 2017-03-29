@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pizza</ion-title>
+    <ion-buttons end>
+      <button clear (click)="presentCartModal()" ion-button icon-only>
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="order">
+  <ion-list>
+    <ion-item ion-item *ngFor="let product of products">
+      <span item-left text-left>{{product.id}}</span>
+      <h2>{{product.name}}</h2>
+      <p>{{product.desc}}</p>
+      <p>{{product.price | currency:'EUR'}}</p>
+      <button item-right (click)="addToCart(product)" ion-button icon-only default>
+            <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+</ion-content>
